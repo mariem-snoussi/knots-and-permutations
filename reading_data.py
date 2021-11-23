@@ -5,4 +5,6 @@ import csv
 with open('knotinfo_no_curls.csv') as csvfile:
   rowreader = csv.reader(csvfile, delimiter=',', quotechar=' ')
   for row in rowreader:
+    row[0] = row[0].replace('"',"")
+    row[-1] = row[-1].replace('"',"")
     print(row)
