@@ -171,8 +171,9 @@ def traverse_crossing():
 
 
 
-def traverse_crossing(n, labels):
+def traverse_crossing(labels, n):
     #if braid is in group B_n then len(labels) = 
+    print(labels)
     c = labels[n - 1]
     a = labels[n]
 
@@ -194,7 +195,7 @@ def label_knot(braids_list, beginning_labels):
   all_labels.append(beginning_labels)
   current_labels = beginning_labels
   for i in range(len(braids_list)):
-    result_labels = traverse_crossing(braids_list[i])
+    result_labels = traverse_crossing(current_labels, int(braids_list[i]))
     all_labels.append(result_labels)
     current_labels = result_labels
 
