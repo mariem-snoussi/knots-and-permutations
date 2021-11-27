@@ -18,6 +18,9 @@
 import csv
 import labelingKnots
 
+def test_transposition(labels, n):
+  labelingKnots.traverse_crossing(labels, n)
+
 def get_initial_labels(braidGroup):
   initial_labeling = []
   for i in range(braidGroup):
@@ -51,6 +54,7 @@ def main() :
   braidGroup = int(input("Input braid group n: "))
   initialLabeling = get_initial_labels(braidGroup)
   pipeOneBraid(braidList[0], initialLabeling)
+  #test_transposition([[1, 2, 0], [0, 2, 1], [2, 1, 0]], 1)
 
 
 

@@ -50,6 +50,7 @@
 """
 
 def t_conjugate(a,b):
+  print("hello")
   a_inverse = tline_inverse(a)
   ba_inverse = multiply_transpositions(a_inverse, b)
   conjugate = multiply_transpositions(ba_inverse, a)
@@ -63,6 +64,7 @@ def tline_inverse(transposition):
   for i in range(len(transposition)):
     result[transposition[i]] = i
   print(result)
+  return result
 
 
 def transposition_to_line(transposition, n):
@@ -107,7 +109,7 @@ def multiply_transpositions(p1,p2):
     for i in range(n):  #starts at 0 and goes to n-1
         product[i] = p2[p1[i] - 1]
 
-    print("product p2*p1 is: ", product)
+    #print("product p2*p1 is: ", product)
     return product
 
 # this one if for hard-coding
@@ -119,7 +121,7 @@ def multiply_two_cycle_transpositions(p1, p2):
     for i in range(len(p1)): 
        #starts at 0 and goes to n-1
         product[i] = p2[p1[i] - 1]
-    print("product p2*p1 is: ", product)
+    #print("product p2*p1 is: ", product)
 
     return product
 
@@ -137,12 +139,12 @@ def two_cycle_transposition_to_line(transpositions, n):
     return line_permutation
 
 
-def t_conjugate(a, b):
-    #returns aba (for 2-cycles only, TODO generalization)
-    #transposition conjugate
-    ba = multiply_two_cycle_transpositions(a, b)
-    c = multiply_two_cycle_transpositions(ba,a)
-    return c
+# def t_conjugate(a, b):
+#     #returns aba (for 2-cycles only, TODO generalization)
+#     #transposition conjugate
+#     ba = multiply_two_cycle_transpositions(a, b)
+#     c = multiply_two_cycle_transpositions(ba,a)
+#     return c
 
 
 #https://en.wikipedia.org/wiki/Braid_group
@@ -173,12 +175,15 @@ def traverse_crossing():
 
 def traverse_crossing(labels, n):
     #if braid is in group B_n then len(labels) = 
+    print("beginning label is")
     print(labels)
     c = labels[n - 1]
     a = labels[n]
 
     #if positive crossing
     result_transposition = t_conjugate(c, a)
+    print("result_transoposition")
+    print(result_transposition)
     labels[n - 1] = a
     labels[n] = result_transposition
 
@@ -186,20 +191,28 @@ def traverse_crossing(labels, n):
     result_transposition = t_conjugate(c, a)
     labels[n - 1] = a
     labels[n] = result_transposition
-
+    print("result label is")
+    print(labels)
     return labels
 
 
 def label_knot(braids_list, beginning_labels):
+  # print(beginning_labels)
   all_labels = []
-  all_labels.append(beginning_labels)
+  label_string = ""
   current_labels = beginning_labels
+  # print(current_labels)
+  #all_labels.add("Hello")
   for i in range(len(braids_list)):
+    label_string += str(current_labels) + "\n"
+    all_labels += current_labels
     result_labels = traverse_crossing(current_labels, int(braids_list[i]))
-    all_labels.append(result_labels)
     current_labels = result_labels
-
+  all_labels += current_labels
+  label_string += str(current_labels )+ "\n"
+  print(label_string)
   return all_labels
+
 
 #we know a labeling is correct of the initial and last labels are the same
 def labeling_is_valid(AllLabels_list):
