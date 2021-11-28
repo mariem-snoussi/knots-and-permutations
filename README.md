@@ -9,7 +9,7 @@ Usage :  python reading_data.py
 Reading data is where the script is executed and helper functions from labelingKnots are called.
 
 ### 1) test_transposition(labels, n) :
-this is a function that takes in an array of transposition labels (in line notation) and <b>n<b> a braid group generator.
+this is a function that takes in an array of transposition labels (in line notation) and n a braid group generator.
 It calls traverse_crossing(labels, n) from labelingKnots to test the accuracy of it ie. whether the wirtenger relation is verified
 
 ### 2) get_initial_labels(braidGroup) :
