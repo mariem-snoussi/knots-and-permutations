@@ -53,7 +53,7 @@ def main() :
   braidList = read_data_from_csv()
   braidGroup = int(input("Input braid group n: "))
   initialLabeling = get_initial_labels(braidGroup)
-  pipeOneBraid(braidList[0], initialLabeling)
+  pipeOneBraid(braidList[2], initialLabeling)
   #test_transposition([[1, 2, 0], [0, 2, 1], [2, 1, 0]], 1)
 
 

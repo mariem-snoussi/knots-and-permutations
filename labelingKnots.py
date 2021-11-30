@@ -175,8 +175,8 @@ def traverse_crossing():
 
 def traverse_crossing(labels, n):
     #if braid is in group B_n then len(labels) = 
-    print("beginning label is")
-    print(labels)
+    # print("beginning label is")
+    # print(labels)
     c = labels[n - 1]
     a = labels[n]
 
@@ -191,8 +191,8 @@ def traverse_crossing(labels, n):
     result_transposition = t_conjugate(c, a)
     labels[n - 1] = a
     labels[n] = result_transposition
-    print("result label is")
-    print(labels)
+    # print("result label is")
+    # print(labels)
     return labels
 
 
