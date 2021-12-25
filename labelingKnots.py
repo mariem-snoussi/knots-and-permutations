@@ -12,6 +12,8 @@
     Usage: TODO
 
 """
+
+
 """
   Helper Functions
 
@@ -50,7 +52,7 @@
 """
 
 def t_conjugate(a,b):
-  print("hello")
+  #print("hello")
   a_inverse = tline_inverse(a)
   ba_inverse = multiply_transpositions(a_inverse, b)
   conjugate = multiply_transpositions(ba_inverse, a)
@@ -63,7 +65,7 @@ def tline_inverse(transposition):
   #switching lines
   for i in range(len(transposition)):
     result[transposition[i]] = i
-  print(result)
+  #print(result)
   return result
 
 
@@ -182,8 +184,8 @@ def traverse_crossing(labels, n):
 
     #if positive crossing
     result_transposition = t_conjugate(c, a)
-    print("result_transoposition")
-    print(result_transposition)
+    #print("result_transoposition")
+    #print(result_transposition)
     labels[n - 1] = a
     labels[n] = result_transposition
 
@@ -201,15 +203,19 @@ def label_knot(braids_list, beginning_labels):
   all_labels = []
   label_string = ""
   current_labels = beginning_labels
-  # print(current_labels)
+  print("current_labels")
+  print(current_labels)
   #all_labels.add("Hello")
   for i in range(len(braids_list)):
+   
+    #print(current_labels)
     label_string += str(current_labels) + "\n"
     all_labels += current_labels
     result_labels = traverse_crossing(current_labels, int(braids_list[i]))
     current_labels = result_labels
   all_labels += current_labels
   label_string += str(current_labels )+ "\n"
+  print("result labeling of braid is : ")
   print(label_string)
   return all_labels
 
@@ -219,6 +225,10 @@ def labeling_is_valid(AllLabels_list):
   if (AllLabels_list[0] == AllLabels_list[len(AllLabels_list)-1]):
     return True
   return False
+
+def string_labeling_valid(labeling_string):
+  labels = labeling_string.split("\n")
+  return labels[0] == labels[-1]
 
 def main():
 

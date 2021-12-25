@@ -26,3 +26,14 @@ This reads data from knot info csv file. Some string formatting also happens in 
 This function, called from main(), takes one braid (its notation) and an inital label and prints the labeling for the whole knot.
 
 ## labelingKnots functions
+
+
+q and p > 0
+TODO : Braid notation for a T(p,q) is {(p-1), (p-2), ... ,1} * q times
+
+
+should verify whether it works for negatives as well ?? 
+
+for T(p, -|q|)
+
+ {-1,-2, ... , -p-1} q times

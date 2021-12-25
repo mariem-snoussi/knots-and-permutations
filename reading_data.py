@@ -34,9 +34,10 @@ def get_initial_labels(braidGroup):
   return initial_labeling
 
 def pipeOneBraid(Braid, initialLabeling):
+  print(Braid)
   labelingKnots.label_knot(Braid, initialLabeling)
   #print(Labeling.multiply_two_cycle_transpositions([0,1],[1,0]))
-  print(Braid)
+  
 
 
 def read_data_from_csv():
